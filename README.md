@@ -68,3 +68,10 @@ each node that includes this define with allowed\_hostbased = 'sometag' are enab
         hostkey_class  => '::aws'
       }
     }
+
+    node hostbased_node inherits generic_node {
+      Softec_ssh::Key_exchange['key_exchange'] {
+        hostbased_auth    => true,
+        allowed_hostbased => 'a-tag'
+      }
+    }
