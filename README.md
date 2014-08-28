@@ -6,7 +6,7 @@ wrapper of softecspa/puppet-ssh
 ####Table of Contents
 
 1. [Overview](#overview)
-2.[Setup - The basics of getting started with [Modulename]](#setup)
+2. [Setup](#setup)
  * [Setup requirements](#setup-requirements)
 3. [Usage - Configuration options and additional functionality](#usage)
  * [Default config options](#default)
