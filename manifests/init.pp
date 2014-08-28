@@ -38,6 +38,8 @@ class softec_ssh (
   $hostkeys_class     = '',
 ) {
 
+## configuration for client and server based ho hostbased_auth ##
+
   if ($hostbased_auth) {
     $hostbased_server_options = {
       'HostbasedAuthentication'         => 'yes',
@@ -59,6 +61,17 @@ class softec_ssh (
 
   $merged_server_options = merge ($server_options, $hostbased_server_options)
   $merged_client_options = merge ($client_options, $hostbased_client_options)
+### push script for sftp features
+
+  file { "/usr/lib/openssh/sftp_server.sh":
+    ensure  => present,
+    mode  => 755,
+    owner => root,
+    group => root,
+    source  => "puppet:///modules/softec_ssh/sftp_server.sh",
+  }
+
+### saz/puppet-ssh classes with customized parameters ###
 
   class { 'ssh::server':
     options               => $merged_server_options,
@@ -70,6 +83,8 @@ class softec_ssh (
     options               => $merged_client_options,
   }
 
+### hostkeys exchange based on environment for aliases ###
+
   class {"softec_ssh::hostkeys${hostkeys_class}":
     cluster_domain    => $cluster_domain,
     nodes_domain      => $nodes_domain,
@@ -77,6 +92,7 @@ class softec_ssh (
   }
   class {'softec_ssh::knownhosts':}
 
+#### hostbased auth #######
   if ($hostbased_auth) {
     if ($allowed_hostbased == '') {
       fail('if hostbased auth is enabled, allowed_hostbased must be specified.')

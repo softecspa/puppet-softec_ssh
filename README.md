@@ -19,6 +19,7 @@ This module is a wrapper of softecspa/puppet-ssh. It manage client and server co
  * install and configure ssh client and server
  * export node's sshkey
  * import sshkey exported from other nodes
+ * configure softec wrapper for sftp subsystem
 
 By default sshkey will be exported with following aliases:
  * fqdn
