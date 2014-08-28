@@ -1,0 +1,16 @@
+<%= hostname %>
+<%= fqdn %>
+<% if has_variable?('backplane_domain') then -%>
+<%= hostname %>.<%= backplane_domain %>
+<% else -%>
+<%= hostname %>.backplane
+<% end -%>
+<% array_addresses.each do |line| -%>
+<%= line %>
+<% end -%>
+<% if has_variable?('ec2_local_hostname') then -%>
+<%= ec2_local_hostname %>
+<% end -%>
+<% if has_variable?('ec2_public_hostname') then -%>
+<%= ec2_public_hostname %>
+<% end -%>
