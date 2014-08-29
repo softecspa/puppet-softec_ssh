@@ -1,6 +1,7 @@
 class softec_ssh (
   $server_options   = {
     'Port'                    => '22',
+    'ListenAddress'           => $listen_address,
     'PermitRootLogin'         => 'without-password',
     'Protocol'                => '2',
     'HostKey'                 => ['/etc/ssh/ssh_host_rsa_key','/etc/ssh/ssh_host_dsa_key','/etc/ssh/ssh_host_ecdsa_key'],
@@ -36,7 +37,7 @@ class softec_ssh (
   $hostbased_auth     = false,
   $allowed_hostbased  = '',
   $hostkeys_class     = '',
-  $listen_address     = '*',
+  $listen_address     = '0.0.0.0',
 ) {
 
 ## configuration for client and server based ho hostbased_auth ##
