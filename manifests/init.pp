@@ -1,6 +1,6 @@
 class softec_ssh (
   $server_options   = {
-    'port'                    => '22',
+    'Port'                    => '22',
     'PermitRootLogin'         => 'without-password',
     'Protocol'                => '2',
     'HostKey'                 => ['/etc/ssh/ssh_host_rsa_key','/etc/ssh/ssh_host_dsa_key','/etc/ssh/ssh_host_ecdsa_key'],
