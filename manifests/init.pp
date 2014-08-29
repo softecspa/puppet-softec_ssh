@@ -36,6 +36,7 @@ class softec_ssh (
   $hostbased_auth     = false,
   $allowed_hostbased  = '',
   $hostkeys_class     = '',
+  $listen_address     = '*',
 ) {
 
 ## configuration for client and server based ho hostbased_auth ##
@@ -45,7 +46,8 @@ class softec_ssh (
       'HostbasedAuthentication'         => 'yes',
       'IgnoreUserKnownHosts'            => 'yes',
       'IgnoreRhosts'                    => 'no',
-      'HostbasedUsesNameFromPacketOnly' => 'yes'
+      'HostbasedUsesNameFromPacketOnly' => 'yes',
+      'ListenAddress'                   => $listen_address,
     }
     $hostbased_client_options = {
       'EnableSSHKeysign'        => 'yes',
@@ -55,6 +57,7 @@ class softec_ssh (
     $hostbased_server_options = {
       'HostbasedAuthentication' => 'no',
       'IgnoreRhosts'            => 'yes',
+      'ListenAddress'           => $listen_address,
     }
     $hostbased_client_options = {}
   }

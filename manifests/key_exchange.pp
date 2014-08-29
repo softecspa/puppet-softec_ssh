@@ -5,6 +5,7 @@ define softec_ssh::key_exchange (
   $hostbased_auth     = false,
   $allowed_hostbased  = '',
   hostkeys_class      = '',
+  listen_address      = '*',
 )
 {
   #configura ssh ed esporta  le chiavi
@@ -14,7 +15,8 @@ define softec_ssh::key_exchange (
     backplane_domain  => $backplane_domain,
     hostbased_auth    => $hostbased_auth,
     allowed_hostbased => $allowed_hostbased,
-    hostkeys_class    => $hostkeys_class
+    hostkeys_class    => $hostkeys_class,
+    listen_address    => $listen_address
   }
 
 }

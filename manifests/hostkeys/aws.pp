@@ -7,18 +7,18 @@ class softec_ssh::hostkeys::aws (
 ) inherits softec_ssh::hostkeys {
 
   $ec2_ip = $ec2_public_ipv4 ? {
-    undef   => "",
-    default => "$ec2_public_ipv4",
+    undef   => '',
+    default => $ec2_public_ipv4,
   }
 
   $aws_local_hostname = $ec2_local_hostname ? {
     undef   => '',
-    default => "$ec2_local_hostname",
+    default => $ec2_local_hostname,
   }
 
   $aws_public_hostname = $ec2_public_hostname ? {
     undef   => '',
-    default => "$ec2_public_hostname",
+    default => $ec2_public_hostname,
   }
 
   $all_aliases= [
