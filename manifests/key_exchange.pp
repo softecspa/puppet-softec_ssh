@@ -4,8 +4,8 @@ define softec_ssh::key_exchange (
   $backplane_domain   = 'backplane',
   $hostbased_auth     = false,
   $allowed_hostbased  = '',
-  hostkeys_class      = '',
-  listen_address      = '0.0.0.0',
+  $hostkeys_class     = '',
+  $listen_address     = '0.0.0.0',
 )
 {
   #configura ssh ed esporta  le chiavi
